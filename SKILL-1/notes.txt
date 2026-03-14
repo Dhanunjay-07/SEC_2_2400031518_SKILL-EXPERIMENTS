@@ -4,5 +4,3 @@ Student ID: 2400031518
 
 This experiment demonstrates basic Git version control
 using a Java file and a text file.
-Feature update added to project
-Git branching demonstration
