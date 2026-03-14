@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="
+ http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <bean id="S1" class="com.klu.SKILL_4.beans.Student">
+ <property name="studentId" value="1"></property>
+ <property name="name" value="Dhanu"></property>
+ <property name="course" value="FSAD"></property>
+ <property name="year" value="2026"></property>
+ </bean>
+
+ </beans>
