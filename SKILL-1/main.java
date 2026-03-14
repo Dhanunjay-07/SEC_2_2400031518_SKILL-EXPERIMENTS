@@ -1,5 +1,5 @@
 public class main {
     public static void main(String[] args) {
-        System.out.println("Git Version Control Experiment");
+        System.out.println("Bug fixed version of Git experiment");
     }
 }
