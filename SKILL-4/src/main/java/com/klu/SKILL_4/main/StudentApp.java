@@ -9,8 +9,8 @@ import com.klu.SKILL_4.config.AppConfig;
 
 public class StudentApp {
 public static void main(String[] args) {
-	ApplicationContext context=new AnnotationConfigApplicationContext(AppConfig.class);
+	ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
 	Student st=context.getBean(Student.class);
-	System.out.println(st);
+	st.display();
 }
 }

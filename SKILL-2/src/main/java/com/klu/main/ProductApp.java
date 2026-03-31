@@ -9,84 +9,79 @@ import com.klu.entity.Product;
 
 public class ProductApp {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        Configuration conf = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sf = conf.buildSessionFactory();
+		Configuration conf = new Configuration().configure("hibernate.cfg.xml");
+		SessionFactory sf = conf.buildSessionFactory();
 
-        Product p = new Product();
+		Product p = new Product();
 
-        /*
-        // INSERT
-        Session s = sf.openSession();
+//        // INSERT
+//        Session s = sf.openSession();
+//
+//        p.setName("Laptop");
+//        p.setDescription("Gaming Laptop");
+//        p.setPrice(80000);
+//        p.setQuantity(5);
+//
+//        Transaction tx = s.beginTransaction();
+//        s.persist(p);
+//        tx.commit();
+//
+//        s.close();
+//
+//        System.out.println("Product Inserted");
 
-        p.setName("Laptop");
-        p.setDescription("Gaming Laptop");
-        p.setPrice(80000);
-        p.setQuantity(10);
+		// READ
+		Session s = sf.openSession();
 
-        Transaction tx = s.beginTransaction();
-        s.persist(p);
-        tx.commit();
+		Product product = s.find(Product.class, 3);
 
-        s.close();
+		if (product != null) {
+			System.out.println("Product Found");
+			System.out.println(product.getId() + " " + product.getName() + " " + product.getPrice());
+		}
 
-        System.out.println("Product Inserted");
-        */
+		s.close();
 
+		// UPDATE
+		s = sf.openSession();
 
-        // READ
-        Session s = sf.openSession();
+		product = s.find(Product.class, 3);
 
-        Product product = s.find(Product.class, 2);
+		if (product != null) {
+			product.setPrice(75000);
+			product.setQuantity(8);
 
-        if(product != null) {
-            System.out.println("Product Found");
-            System.out.println(product.getId()+" "+product.getName()+" "+product.getPrice());
-        }
+			Transaction tx = s.beginTransaction();
 
-        s.close();
+			s.merge(product);
 
+			tx.commit();
 
-
-        // UPDATE
-        s = sf.openSession();
-
-        product = s.find(Product.class, 2);
-
-        if(product != null) {
-
-            product.setPrice(75000);
-            product.setQuantity(8);
-
-            Transaction tx = s.beginTransaction();
-
-            s.merge(product);
-
-            tx.commit();
-
-            System.out.println("Product Updated");
-        }
-
-        s.close();
-
-
-       s = sf.openSession();
-     product = s.find(Product.class, 2);
-
-     if(product != null) {
-
-        Transaction tx = s.beginTransaction();
-
+			System.out.println("Product Updated");
+       }
+//
+     //s.close();
+//
+//
+     s = sf.openSession();
+   product = s.find(Product.class, 3);
+//
+   if(product != null) {
+//
+    Transaction tx = s.beginTransaction();
+//
 s.remove(product); 
-
-         tx.commit();
-
-          System.out.println("Product Deleted");
-     }
-
-     s.close();
-
-        sf.close();
+//
+     tx.commit();
+//
+       System.out.println("Product Deleted");
     }
-}
+//
+    s.close();
+
+			sf.close();
+		}
+	}
+

@@ -41,9 +41,11 @@ public Student() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-@Override
-public String toString() {
-	return "Student [StudentId=" + studentId + ", name=" + name + ", Course=" + course + ", year=" + year + "]";
+public void display() {
+	System.out.println("ID:"+studentId);
+	System.out.println("Name:"+name);
+	System.out.println("Course:"+course);
+	System.out.println("Year:"+year);
 }
 
 }

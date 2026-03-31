@@ -23,7 +23,7 @@ public void setDateofcompletion(int dateofcompletion) {
 	this.dateofcompletion = dateofcompletion;
 }
 public void certificationdisplay() {
-	System.out.println("ID:"+id);
+	System.out.println("CERFICATE ID:"+id);
 	System.out.println("Name:"+name);
 	System.out.println("DateOfCompletion:"+dateofcompletion);
 }

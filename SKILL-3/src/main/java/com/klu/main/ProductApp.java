@@ -44,7 +44,6 @@ public class ProductApp {
 		L.forEach(a->System.out.println(a));
 		s.close();
 
-		// HQL sorting descending
 		String hql1="from Product order by price DESC";
 		s=sf.openSession();
 		Query<Product>query1=s.createQuery(hql1, Product.class);
@@ -53,7 +52,6 @@ public class ProductApp {
 		L1.forEach(b->System.out.println(b));
 		s.close();
 
-		// sort by quantity highest first
 		String hql2="from Product order by quantity DESC";
 		s=sf.openSession();
 		Query<Product>query2=s.createQuery(hql2, Product.class);
@@ -62,7 +60,6 @@ public class ProductApp {
 		L2.forEach(c->System.out.println(c));
 		s.close();
 
-		// pagination first 3
 		String pg="from Product";
 		s=sf.openSession();
 		Query<Product>q1=s.createQuery(pg, Product.class);
@@ -73,7 +70,6 @@ public class ProductApp {
 		l1.forEach(d->System.out.println(d));
 		s.close();
 
-		// pagination next 3
 		s=sf.openSession();
 		Query<Product>q2=s.createQuery(pg, Product.class);
 		q2.setFirstResult(3);
@@ -83,7 +79,7 @@ public class ProductApp {
 		l2.forEach(e->System.out.println(e));
 		s.close();
 
-		// aggregate functions
+	
 		String count="select count(*) from Product";
 		String min="select min(price) from Product";
 		String max="select max(price) from Product";
@@ -104,7 +100,6 @@ public class ProductApp {
 
 		s.close();
 
-		// where clause price range
 		String hql3="from Product where price between 1000 and 10000";
 		s=sf.openSession();
 		Query<Product>query3=s.createQuery(hql3, Product.class);
@@ -113,7 +108,6 @@ public class ProductApp {
 		L3.forEach(f->System.out.println(f));
 		s.close();
 
-		// like queries
 		String like1="from Product where name like 'M%'";
 		s=sf.openSession();
 		Query<Product>q3=s.createQuery(like1,Product.class);

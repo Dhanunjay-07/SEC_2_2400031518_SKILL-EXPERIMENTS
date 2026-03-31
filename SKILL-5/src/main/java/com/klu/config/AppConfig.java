@@ -20,7 +20,7 @@ public Student getStudent() {
 @Bean
 public Certification getCertification() {
 	Certification c=new Certification();
-	c.setId(1);
+	c.setId(1001);
 	c.setName("Microsft");
 	c.setDateofcompletion(2026);
 	return c;
